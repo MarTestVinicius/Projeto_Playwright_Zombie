@@ -1,8 +1,10 @@
 const { expect } = require('@playwright/test');
+const { Toast } = require('../components/Components');
 export class LeadsPage {
 
     constructor(page) {
         this.page = page;
+        this.toast = new Toast(this.page);
     }
 
     async IrPaginaInicial() {
@@ -26,25 +28,27 @@ export class LeadsPage {
 
     async ValidarMensagemSucesso() {
         const toast_message = 'Agradecemos por compartilhar seus dados conosco. Em breve, nossa equipe entrará em contato!';
-        await expect(this.page.locator('.toast')).toHaveText(toast_message);
-        await expect(this.page.locator('.toast')).toBeHidden({ timeout: 4000 });
+        await this.toast.ValidarToastMensagem(toast_message);
     }
 
     async ValidarMensagemErroEmailInvalido() {
-        await expect(this.page.locator('.alert')).toHaveText('Email incorreto');
+        const mensagem = 'Email incorreto';
+        await this.toast.ValidarAlertMensagem(mensagem);
     }
 
 
     async ValidarMensagemErroCampoObrigatorioNome() {
-        await expect(this.page.locator('.alert')).toHaveText('Campo obrigatório');
-
+        const mensagem = 'Campo obrigatório';
+        await this.toast.ValidarAlertMensagem(mensagem);
     }
 
     async ValidarMensagemErroCampoObrigatorioEmail() {
-        await expect(this.page.locator('.alert')).toHaveText('Campo obrigatório');
+        const mensagem = 'Campo obrigatório';
+        await this.toast.ValidarAlertMensagem(mensagem);
 
     }
     async ValidarMensagemErroCampoObrigatorioNome_Email() {
-        await expect(this.page.locator('.alert')).toHaveText(['Campo obrigatório', 'Campo obrigatório']);
+        const mensagem = ['Campo obrigatório', 'Campo obrigatório'];
+        await this.toast.ValidarAlertMensagem(mensagem);
     }
 }
