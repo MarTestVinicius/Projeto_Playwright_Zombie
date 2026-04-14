@@ -31,6 +31,11 @@ export class LeadsPage {
         await this.toast.ValidarToastMensagem(toast_message);
     }
 
+    async ValidarMensagemErroUsuariocCadastrado() {
+        const toast_message = 'O endereço de e-mail fornecido já está registrado em nossa fila de espera.';
+        await this.toast.ValidarToastMensagem(toast_message);
+    }
+
     async ValidarMensagemErroEmailInvalido() {
         const mensagem = 'Email incorreto';
         await this.toast.ValidarAlertMensagem(mensagem);

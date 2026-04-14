@@ -1,6 +1,6 @@
 const { test } = require('@playwright/test');
 import { LoginPage } from '../../pages/loginAdminPage';
-import { AdminPage } from '../../pages/AdminPage';
+import { MoviePage } from '../../pages/moviePage';
 
 
 
@@ -8,17 +8,17 @@ import { AdminPage } from '../../pages/AdminPage';
  * @type {LoginPage}
  */
 let loginPage;
-let adminPage;
+let moviePage;
 
 test.beforeEach(async ({ page }) => {
     loginPage = new LoginPage(page);
-    adminPage = new AdminPage(page);
+    moviePage = new MoviePage(page);
     await loginPage.IrPaginaInicialLoginAdmin();//visitar Página Inicial
 });
 
 test('Realizar login Admin com sucesso', async ({ page }) => {
     await loginPage.SubmitFormularioAdmin('admin@zombieplus.com', 'pwd123');
-    await adminPage.ValidarLoginAdminSucesso();
+    await moviePage.ValidarLoginAdminSucesso();
 });
 
 test('Realizar login Admin com Falha de Senha', async ({ page }) => {
