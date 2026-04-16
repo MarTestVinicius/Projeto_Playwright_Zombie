@@ -15,6 +15,9 @@ export class MoviePage {
         const logoutbutton2 = this.page.locator('a[href="/logout"]');//localizar o botão de logout usando um seletor CSS
         await expect(logoutbutton2).toBeVisible();//verificar se o botão de logout está visível, indicando que o login foi bem-sucedido
         await expect(this.page).toHaveURL(/.*admin/);//verificar se a URL contém "/admin", indicando que o usuário foi redirecionado para a página de administração após o login bem-sucedido
+
+        const wellComeMessage = this.page.locator('.logged-user')//localizar a mensagem de boas-vindas
+        await expect(wellComeMessage).toHaveText('Olá, Admin');//validando a mensagem de boas vindas para o usuário admin.
     }
 
     async AdicionarNovoFilme() {
@@ -23,26 +26,50 @@ export class MoviePage {
         await expect(titluloFormularioCadastroFilme).toBeVisible();//verificar se o título do formulário de cadastro de filme está visível, indicando que a página de cadastro foi carregada corretamente
     }
 
-     async PreencherformNovoFilme(title,overview,company,release_year) {
-        await this.page.getByLabel('Titulo').fill(title);//preencher o campo de título do filme
+    async PreencherformNovoFilme(title, overview, company, release_year, cover, featured) {
+        await this.page.getByLabel('Titulo do filme').fill(title);//preencher o campo de título do filme
         await this.page.getByLabel('Sinopse').fill(overview);//preencher o campo de sinopse do filme
 
         //encontrar e adicionar a empresa no dropdown
         await this.page.locator('#select_company_id .react-select__indicator').click();//clicar no campo de seleção de empresa para abrir o dropdown
         await this.page.locator('.react-select__option').filter({ hasText: company }).click();//selecionar a empresa desejada no dropdown
 
-         //encontrar e adicionar o ano de lançamento no dropdown
+        //encontrar e adicionar o ano de lançamento no dropdown
         await this.page.locator('#select_year .react-select__indicator').click();//clicar no campo de seleção de ano para abrir o dropdown
         await this.page.locator('.react-select__option').filter({ hasText: release_year }).click();//selecionar o ano desejado no dropdown
-     }
 
-     async EnviarFormularioCadastrarNovoFilme() {
+        //encontrar e adicionar o cover do filme
+        await this.page.locator('#cover')
+        .setInputFiles('tests/support/fixtures' + cover);//enviar o arquivo de cover para o campo de upload    
+
+        //adicionar conteúdo destaque ou não
+        if (featured) {
+            await this.page.locator('.featured .react-switch').click();//habilita o conteúdo destaque.
+        }
+    }
+
+    async EnviarFormularioCadastrarNovoFilme() {
         await this.page.getByRole('button', { name: 'Cadastrar' }).click();//clicar no botão de cadastro
-     }
+    }
 
-     async ValidarToastDeFilmeEnviadoSucesso() {
+    async ValidarToastDeFilmeEnviadoSucesso() {
         const errorMessage = 'Cadastro realizado com sucesso!';
-       await this.toast.ValidarToastMensagem(errorMessage);
+        await this.toast.ValidarToastMensagem(errorMessage);
+    }
+
+    async ValidarToastDeFilmeEnviadoDuplicidade() {
+        const errorMessage = 'Este conteúdo já encontra-se cadastrado no catálogo';
+        await this.toast.ValidarToastMensagem(errorMessage);
+    }
+
+
+    async ValidarCamposObrigatoriosVazios() {
+        const errorMessage = [
+            'Por favor, informe o título.',
+            'Por favor, informe a sinopse.',
+            'Por favor, informe a empresa distribuidora.',
+            'Por favor, informe o ano de lançamento.'];
+        await this.toast.ValidarAlertMensagem(errorMessage);
     }
 }
 

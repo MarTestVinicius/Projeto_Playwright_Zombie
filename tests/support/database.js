@@ -19,3 +19,20 @@ export async function ExecutarSQL(sqlScript) {
     }
     catch (error) { console.error('Erro ao executar o script SQL:', error); }
 }
+
+
+export async function ExecutarSQLConsulta(sqlScript) {
+    try {
+        const pool = new Pool(Dbconfig);
+        const cliente = await pool.connect();
+        const resultado = await cliente.query(sqlScript);
+        console.log(resultado.rows);
+
+        cliente.release();
+        return resultado.rows;
+    }
+    catch (error) {
+        console.error('Erro ao executar o script SQL:', error);
+        return null;
+    }
+}

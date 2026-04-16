@@ -1,10 +1,14 @@
 const { expect } = require('@playwright/test');
 const { Toast } = require('../components/Components');
+const { MoviePage } = require ('../pages/moviePage');
+
+
 export class LoginPage {
 
     constructor(page) {
         this.page = page;
         this.toast = new Toast(this.page);
+        this.movies = new MoviePage(this.page);
     }
 
     async IrPaginaInicialLoginAdmin() {
@@ -43,8 +47,4 @@ export class LoginPage {
         const erromensagem = 'Campo obrigatório';
        await this.toast.ValidarAlertMensagem(erromensagem);
     }
-
-
-
-
 }

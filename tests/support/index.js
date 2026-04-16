@@ -8,14 +8,14 @@ const { Toast } = require('../../components/Components');
 const test = base.extend({
     // Aqui você pode adicionar fixtures personalizadas, se necessário
     page: async ({ page }, use) => {
-        await use({
-            ...page,
-            leads: new LeadsPage(page),
-            login: new LoginPage(page),
-            movies: new MoviePage(page),
-            toast: new Toast(page)
-        })
-    }
+            const context = page
+
+            context['leads'] = new LeadsPage(page),
+            context['login'] = new LoginPage(page),
+            context['movies'] = new MoviePage(page),
+            context['toast'] = new Toast(page)
+            await use(page);
+        }
 });
 
 export { test };
