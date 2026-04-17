@@ -15,7 +15,6 @@ export class AuthApi {
         expect(responseToken.ok()).toBeTruthy();
         const body = JSON.parse(await responseToken.text());
         const token = body.token;
-        console.log(token);
         return token;
     }
 
@@ -32,7 +31,6 @@ export class AuthApi {
         expect(response.ok()).toBeTruthy();
         const body = JSON.parse(await response.text());
         return body.data[0].id;
-        console.log(body.data[0].id);
     }
 
 

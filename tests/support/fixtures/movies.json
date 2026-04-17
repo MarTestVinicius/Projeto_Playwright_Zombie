@@ -1,83 +1,84 @@
 {
-    "create": {
-      "title": "Guerra Mundial Z",
-      "overview": "Um ex-investigador da ONU Ã© chamado para investigar a propagaÃ§Ã£o de um vÃ­rus mortal que transforma as vÃ­timas em zumbis, ameaÃ§ando dizimar a populaÃ§Ã£o mundial.",
-      "company": "Paramount Pictures",
-      "release_year": 2013,
-      "featured": false,
-      "cover": "/covers/movies/wwz.png"
-    },
-    "duplicate": {
-      "title": "Resident Evil: O Hospedeiro",
-      "overview": "Alice se junta a sobreviventes para enfrentar a CorporaÃ§Ã£o Umbrella e os zumbis mutantes criados por ela.",
-      "company": "Paramount Pictures",
-      "release_year": 2002,
-      "featured": false,
-      "cover": "/covers/movies/resident-evil.jpg"
-    },
-    "a_noite_dos_mortos_vivos": {
-      "title": "A Noite dos Mortos-Vivos",
-      "overview": "Um grupo de pessoas fica preso em uma casa enquanto zumbis canibais famintos cercam o local.",
-      "company": "Continental Distributing",
-      "release_year": 1968,
-      "featured": false,
-      "cover": "/covers/movies/a_noite_dos_mortos_vivos.png"
-    },
-    "exterminio": {
-      "title": "ExtermÃ­nio",
-      "overview": "Um vÃ­rus transforma as pessoas em raivosos assassinos. Um grupo tenta sobreviver na desolada Londres.",
-      "company": "Fox Searchlight Pictures",
-      "release_year": 2002,
-      "featured": true,
-      "cover": "/covers/movies/exterminio.png"
-    },
-    "madrugada_dos_mortos": {
-      "title": "Madrugada dos Mortos",
-      "overview": "Um grupo de sobreviventes busca abrigo em um shopping enquanto uma horda de zumbis toma conta da cidade.",
-      "company": "Universal Pictures",
-      "release_year": 2004,
-      "featured": false,
-      "cover": "/covers/movies/madrugada_dos_mortos.png"
-    },
-    "zumbilandia": {
-      "title": "ZumbilÃ¢ndia",
-      "overview": "Um grupo improvÃ¡vel de sobreviventes navega por um mundo cheio de zumbis, tentando encontrar um lugar seguro.",
-      "company": "Sony Pictures",
-      "release_year": 2009,
-      "featured": true,
-      "cover": "/covers/movies/zumbilandia.png"
-    },
-    "orgulho_e_preconceito_e_zumbis": {
-      "title": "Orgulho e Preconceito e Zumbis",
-      "overview": "Elizabeth Bennet e Sr. Darcy unem forÃ§as para combater uma praga de zumbis que assola a Inglaterra.",
-      "company": "Screen Gems",
-      "release_year": 2016,
-      "featured": false,
-      "cover": "/covers/movies/orgulho_e_preconceito_e_zumbis.png"
-    },
-    "meu_namorado_e_um_zumbi": {
-      "title": "Meu Namorado Ã© um Zumbi",
-      "overview": "Em um mundo pÃ³s-apocalÃ­ptico, uma jovem se apaixona por um zumbi que ainda preserva algumas caracterÃ­sticas humanas.",
-      "company": "Summit Entertainment",
-      "release_year": 2013,
-      "featured": false,
-      "cover": "/covers/movies/meu_namorado_e_um_zumbi.png"
-    },
-    "dead_snow": {
-      "title": "Dead Snow",
-      "overview": "Um grupo de amigos enfrenta zumbis nazistas que ressurgem para aterrorizar uma vila remota.",
-      "company": "IFC Films",
-      "release_year": 2009,
-      "featured": true,
-      "cover": "/covers/movies/dead_snow.png"
-    },
-    "a_volta_dos_mortos_vivos": {
-      "title": "A Volta dos Mortos Vivos",
-      "overview": "Um gÃ¡s tÃ³xico transforma os mortos em zumbis famintos. Um grupo luta para sobreviver em uma cidade sitiada.",
-      "company": "Orion Pictures",
-      "release_year": 1985,
-      "featured": false,
-      "cover": "/covers/movies/a_volta_dos_mortos_vivos.png"
-    }
+  "create": {
+    "title": "Guerra Mundial Z",
+    "overview": "Um ex-investigador da ONU Ã© chamado para investigar a propagaÃ§Ã£o de um vÃ­rus mortal que transforma as vÃ­timas em zumbis, ameaÃ§ando dizimar a populaÃ§Ã£o mundial.",
+    "company": "Paramount Pictures",
+    "release_year": 2013,
+    "featured": false,
+    "cover": "/covers/movies/wwz.png"
+  },
+  "duplicate": {
+    "title": "Resident Evil: O Hospedeiro",
+    "overview": "Alice se junta a sobreviventes para enfrentar a CorporaÃ§Ã£o Umbrella e os zumbis mutantes criados por ela.",
+    "company": "Paramount Pictures",
+    "release_year": 2002,
+    "featured": false,
+    "cover": "/covers/movies/resident-evil.jpg"
+  },
+  "to_remove": {
+    "title": "A Noite dos Mortos-Vivos",
+    "overview": "Um grupo de pessoas fica preso em uma casa enquanto zumbis canibais famintos cercam o local.",
+    "company": "Paramount Pictures",
+    "release_year": 1968,
+    "featured": false,
+    "cover": "/covers/movies/mortos-vivos.jpg"
+  },
+  "search": {
+    "input": "zumbi",
+    "output": [
+      "Zumbilandia",
+      "Orgulho e Preconceito e Zumbis",
+      "Meu Namorado é um Zumbi"
+    ],
+    "data": [
+      {
+        "title": "Zumbilandia",
+        "overview": "Um grupo improvável de sobreviventes navega por um mundo cheio de zumbis, tentando encontrar um lugar seguro.",
+        "company": "Sony Pictures",
+        "release_year": 2009,
+        "featured": true,
+        "cover": "/covers/movies/zumbilandia.png"
+      },
+      {
+        "title": "Orgulho e Preconceito e Zumbis",
+        "overview": "Elizabeth Bennet e Sr. Darcy unem forças para combater uma praga de zumbis que assola a Inglaterra.",
+        "company": "Paramount Pictures",
+        "release_year": 2016,
+        "featured": false,
+        "cover": "/covers/movies/opz.png"
+      },
+      {
+        "title": "Meu Namorado é um Zumbi",
+        "overview": "Em um mundo pós-apocalíptico, uma jovem se apaixona por um zumbi que ainda preserva algumas características humanas.",
+        "company": "Paramount Pictures",
+        "release_year": 2013,
+        "featured": false,
+        "cover": "/covers/movies/warm-bodies.png"
+      }
+    ]
+  },
+  "exterminio": {
+    "title": "Extermínio",
+    "overview": "Um vírus transforma as pessoas em raivosos assassinos. Um grupo tenta sobreviver na desolada Londres.",
+    "company": "Fox Searchlight Pictures",
+    "release_year": 2002,
+    "featured": true,
+    "cover": "/covers/movies/exterminio.png"
+  },
+  "madrugada_dos_mortos": {
+    "title": "Madrugada dos Mortos",
+    "overview": "Um grupo de sobreviventes busca abrigo em um shopping enquanto uma horda de zumbis toma conta da cidade.",
+    "company": "Universal Pictures",
+    "release_year": 2004,
+    "featured": false,
+    "cover": "/covers/movies/madrugada_dos_mortos.png"
+  },
+  "a_volta_dos_mortos_vivos": {
+    "title": "A Volta dos Mortos Vivos",
+    "overview": "Um gás tóxico transforma os mortos em zumbis famintos. Um grupo luta para sobreviver em uma cidade sitiada.",
+    "company": "Orion Pictures",
+    "release_year": 1985,
+    "featured": false,
+    "cover": "/covers/movies/a_volta_dos_mortos_vivos.png"
   }
-  
+}

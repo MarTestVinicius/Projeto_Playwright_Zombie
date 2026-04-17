@@ -1,10 +1,10 @@
 const { expect } = require('@playwright/test');
-const { Toast } = require('../components/Components');
+const { Componentes } = require('../components/Components');
 export class LeadsPage {
 
     constructor(page) {
         this.page = page;
-        this.toast = new Toast(this.page);
+        this.componentes = new Componentes(this.page);
     }
 
     async IrPaginaInicial() {
@@ -28,32 +28,31 @@ export class LeadsPage {
 
     async ValidarMensagemSucesso() {
         const toast_message = 'Agradecemos por compartilhar seus dados conosco. Em breve, nossa equipe entrará em contato';
-        await this.toast.ValidarPopupMensagem(toast_message);
+        await this.componentes.ValidarPopupMensagem(toast_message);
     }
 
     async ValidarMensagemErroUsuariocCadastrado() {
         const toast_message = 'e-mail fornecido já consta em nossa lista de espera.';
-        await this.toast.ValidarPopupMensagem(toast_message);
+        await this.componentes.ValidarPopupMensagem(toast_message);
     }
 
     async ValidarMensagemErroEmailInvalido() {
         const mensagem = 'Email incorreto';
-        await this.toast.ValidarAlertMensagem(mensagem);
+        await this.componentes.ValidarAlertMensagem(mensagem);
     }
 
 
     async ValidarMensagemErroCampoObrigatorioNome() {
         const mensagem = 'Campo obrigatório';
-        await this.toast.ValidarAlertMensagem(mensagem);
+        await this.componentes.ValidarAlertMensagem(mensagem);
     }
 
     async ValidarMensagemErroCampoObrigatorioEmail() {
         const mensagem = 'Campo obrigatório';
-        await this.toast.ValidarAlertMensagem(mensagem);
-
+        await this.componentes.ValidarAlertMensagem(mensagem);
     }
     async ValidarMensagemErroCampoObrigatorioNome_Email() {
         const mensagem = ['Campo obrigatório', 'Campo obrigatório'];
-        await this.toast.ValidarAlertMensagem(mensagem);
+        await this.componentes.ValidarAlertMensagem(mensagem);
     }
 }

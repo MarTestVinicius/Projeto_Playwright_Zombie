@@ -1,11 +1,11 @@
 const { expect } = require('@playwright/test');
-const { Toast } = require('../components/Components');
+const { Componentes } = require('../components/Components');
 
 export class MoviePage {
 
     constructor(page) {
         this.page = page;
-        this.toast = new Toast(this.page);
+        this.componentes = new Componentes(this.page);
     }
 
 
@@ -40,7 +40,7 @@ export class MoviePage {
 
         //encontrar e adicionar o cover do filme
         await this.page.locator('#cover')
-        .setInputFiles('tests/support/fixtures' + cover);//enviar o arquivo de cover para o campo de upload    
+            .setInputFiles('tests/support/fixtures' + cover);//enviar o arquivo de cover para o campo de upload    
 
         //adicionar conteúdo destaque ou não
         if (featured) {
@@ -52,14 +52,14 @@ export class MoviePage {
         await this.page.getByRole('button', { name: 'Cadastrar' }).click();//clicar no botão de cadastro
     }
 
-    async ValidarToastDeFilmeEnviadoSucesso() {
+    async ValidarComponenteDeFilmeEnviadoSucesso() {
         const errorMessage = 'adicionado ao catálogo.';
-        await this.toast.ValidarPopupMensagem(errorMessage);
+        await this.componentes.ValidarPopupMensagem(errorMessage);
     }
 
-    async ValidarToastDeFilmeEnviadoDuplicidade() {
-        const errorMessage = 'já consta em nosso catálogo';
-        await this.toast.ValidarPopupMensagem(errorMessage);
+    async ValidarComponenteDeFilmeEnviadoDuplicidade(title) {
+        const errorMessage = `O título  '${title}' já consta em nosso catálogo`;
+        await this.componentes.ValidarPopupMensagem(errorMessage);
     }
 
 
@@ -69,7 +69,29 @@ export class MoviePage {
             'Campo obrigatório',
             'Campo obrigatório',
             'Campo obrigatório'];
-        await this.toast.ValidarAlertMensagem(errorMessage);
+        await this.componentes.ValidarAlertMensagem(errorMessage);
+    }
+
+    async RemoverFilmeDaLista(title) {
+
+        //await this.page.locator(`//td[text()='${title}']/..//button`).click();//localizar o botão de remover do filme específico usando XPath e clicar nele
+        await this.page.getByRole('row', { name: title }).getByRole('button').click();//uma outra alternativa para fazer a mesma ação acima.
+        await this.page.locator('.confirm-removal').click();//confirmar a remoção do filme clicando no botão de confirmação
+    }
+
+    async ValidarFilmeRemovidoSucesso(title) {
+        const errorMessage = 'Filme removido com sucesso.';
+        await this.componentes.ValidarPopupMensagem(errorMessage);
+    }
+
+    async BuscarFilmePeloUmTermo(palavra) {
+        await this.page.getByPlaceholder('Busque pelo nome').fill(palavra);//preencher o campo de busca com a palavra desejada
+        await this.page.locator('.actions button').click();//clicar no botão de busca para iniciar a pesquisa        
+    }
+
+    async ValidarResultadoPesquisa(palavra) {
+        const row = await this.page.getByRole('row').locator('.title');//verificar se o resultado da pesquisa contém o filme esperado, indicando que a busca foi realizada com sucesso
+        await expect(row).toContainText(palavra);
     }
 }
 

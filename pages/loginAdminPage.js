@@ -1,5 +1,5 @@
 const { expect } = require('@playwright/test');
-const { Toast } = require('../components/Components');
+const { Componentes } = require('../components/Components');
 const { MoviePage } = require ('../pages/moviePage');
 
 
@@ -7,7 +7,7 @@ export class LoginPage {
 
     constructor(page) {
         this.page = page;
-        this.toast = new Toast(this.page);
+        this.componentes = new Componentes(this.page);
         this.movies = new MoviePage(this.page);
     }
 
@@ -25,26 +25,26 @@ export class LoginPage {
 
     async ValidarLoginAdminFalha() {
         const errorMessage = 'Ocorreu um erro ao tentar efetuar o login. Por favor, verifique suas credenciais e tente novamente.';
-       await this.toast.ValidarPopupMensagem(errorMessage);
+       await this.componentes.ValidarPopupMensagem(errorMessage);
     }
 
      async ValidarLoginAdminFalhaEstruturaEmail() {
         const errorMessage = 'Email incorreto';
-       await this.toast.ValidarAlertMensagem(errorMessage);
+       await this.componentes.ValidarAlertMensagem(errorMessage);
     }
 
     async ValidarLoginAdminFalhaCamposEmailVazio() {
         const erromensagem = 'Campo obrigatório';
-       await this.toast.ValidarAlertMensagem(erromensagem);
+       await this.componentes.ValidarAlertMensagem(erromensagem);
     }
 
     async ValidarLoginAdminFalhaCamposEmailSenhaVazio() {
          const mensagem = ['Campo obrigatório', 'Campo obrigatório'];
-        await this.toast.ValidarAlertMensagem(mensagem);
+        await this.componentes.ValidarAlertMensagem(mensagem);
     }
 
     async ValidarLoginAdminFalhaCamposSenhaVazio() {
         const erromensagem = 'Campo obrigatório';
-       await this.toast.ValidarAlertMensagem(erromensagem);
+       await this.componentes.ValidarAlertMensagem(erromensagem);
     }
 }

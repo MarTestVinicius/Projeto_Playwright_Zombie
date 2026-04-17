@@ -14,7 +14,6 @@ export async function ExecutarSQL(sqlScript) {
         const pool = new Pool(Dbconfig);
         const cliente = await pool.connect();
         const resultado = await cliente.query(sqlScript);
-        console.log(resultado.rows);
         cliente.release();
     }
     catch (error) { console.error('Erro ao executar o script SQL:', error); }
@@ -26,7 +25,6 @@ export async function ExecutarSQLConsulta(sqlScript) {
         const pool = new Pool(Dbconfig);
         const cliente = await pool.connect();
         const resultado = await cliente.query(sqlScript);
-        console.log(resultado.rows);
 
         cliente.release();
         return resultado.rows;

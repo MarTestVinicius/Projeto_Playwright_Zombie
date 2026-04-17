@@ -2,7 +2,7 @@ const { test: base } = require('@playwright/test');
 const { LeadsPage } = require('../../pages/leadspage');
 const { LoginPage } = require('../../pages/loginAdminPage');
 const { MoviePage } = require('../../pages/moviePage');
-const { Toast } = require('../../components/Components');
+const { Componentes } = require('../../components/Components');
 const { AuthApi } =  require ('../support/token.api');
 
 
@@ -22,7 +22,7 @@ const test = base.extend({
         context['leads'] = new LeadsPage(page),
             context['login'] = new LoginPage(page),
             context['movies'] = new MoviePage(page),
-            context['toast'] = new Toast(page)
+            context['componentes'] = new Componentes(page)
         await use(page);
     }
 });

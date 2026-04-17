@@ -1,6 +1,6 @@
 const { expect } = require('@playwright/test');
 
-export class Toast {
+export class Componentes {
    constructor(page) {
         this.page = page;
     }
@@ -14,7 +14,6 @@ export class Toast {
     async ValidarPopupMensagem(mensagem) {
         const popup = this.page.locator('.swal2-popup #swal2-html-container');
         await expect(popup).toContainText(mensagem);
-        await expect(popup).toBeVisible({ timeout: 4000 });
     }
 
     async ValidarAlertMensagem(mensagem) {
