@@ -27,13 +27,13 @@ export class LeadsPage {
     }
 
     async ValidarMensagemSucesso() {
-        const toast_message = 'Agradecemos por compartilhar seus dados conosco. Em breve, nossa equipe entrará em contato!';
-        await this.toast.ValidarToastMensagem(toast_message);
+        const toast_message = 'Agradecemos por compartilhar seus dados conosco. Em breve, nossa equipe entrará em contato';
+        await this.toast.ValidarPopupMensagem(toast_message);
     }
 
     async ValidarMensagemErroUsuariocCadastrado() {
-        const toast_message = 'O endereço de e-mail fornecido já está registrado em nossa fila de espera.';
-        await this.toast.ValidarToastMensagem(toast_message);
+        const toast_message = 'e-mail fornecido já consta em nossa lista de espera.';
+        await this.toast.ValidarPopupMensagem(toast_message);
     }
 
     async ValidarMensagemErroEmailInvalido() {

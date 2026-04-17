@@ -53,22 +53,22 @@ export class MoviePage {
     }
 
     async ValidarToastDeFilmeEnviadoSucesso() {
-        const errorMessage = 'Cadastro realizado com sucesso!';
-        await this.toast.ValidarToastMensagem(errorMessage);
+        const errorMessage = 'adicionado ao catálogo.';
+        await this.toast.ValidarPopupMensagem(errorMessage);
     }
 
     async ValidarToastDeFilmeEnviadoDuplicidade() {
-        const errorMessage = 'Este conteúdo já encontra-se cadastrado no catálogo';
-        await this.toast.ValidarToastMensagem(errorMessage);
+        const errorMessage = 'já consta em nosso catálogo';
+        await this.toast.ValidarPopupMensagem(errorMessage);
     }
 
 
     async ValidarCamposObrigatoriosVazios() {
         const errorMessage = [
-            'Por favor, informe o título.',
-            'Por favor, informe a sinopse.',
-            'Por favor, informe a empresa distribuidora.',
-            'Por favor, informe o ano de lançamento.'];
+            'Campo obrigatório',
+            'Campo obrigatório',
+            'Campo obrigatório',
+            'Campo obrigatório'];
         await this.toast.ValidarAlertMensagem(errorMessage);
     }
 }

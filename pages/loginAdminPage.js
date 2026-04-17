@@ -24,8 +24,8 @@ export class LoginPage {
     }
 
     async ValidarLoginAdminFalha() {
-        const errorMessage = 'Oops!Ocorreu um erro ao tentar efetuar o login. Por favor, verifique suas credenciais e tente novamente.';
-       await this.toast.ValidarToastMensagem(errorMessage);
+        const errorMessage = 'Ocorreu um erro ao tentar efetuar o login. Por favor, verifique suas credenciais e tente novamente.';
+       await this.toast.ValidarPopupMensagem(errorMessage);
     }
 
      async ValidarLoginAdminFalhaEstruturaEmail() {

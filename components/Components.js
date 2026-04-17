@@ -11,6 +11,12 @@ export class Toast {
         await expect(toast).toBeHidden({ timeout: 5000 });
     }
 
+    async ValidarPopupMensagem(mensagem) {
+        const popup = this.page.locator('.swal2-popup #swal2-html-container');
+        await expect(popup).toContainText(mensagem);
+        await expect(popup).toBeVisible({ timeout: 4000 });
+    }
+
     async ValidarAlertMensagem(mensagem) {
         const alert = this.page.locator('span[class$=alert]');
         await expect(alert).toHaveText(mensagem);
