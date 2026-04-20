@@ -4,6 +4,7 @@ const { LoginPage } = require('../../pages/loginAdminPage');
 const { MoviePage } = require('../../pages/moviePage');
 const { Componentes } = require('../../components/Components');
 const { AuthApi } =  require ('../support/token.api');
+const { TvshowPage } = require('../../pages/tvShowPage');
 
 
 const test = base.extend({
@@ -23,6 +24,7 @@ const test = base.extend({
             context['login'] = new LoginPage(page),
             context['movies'] = new MoviePage(page),
             context['componentes'] = new Componentes(page)
+            context['tvshows'] = new TvshowPage(page)
         await use(page);
     }
 });
