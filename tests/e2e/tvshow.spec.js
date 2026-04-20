@@ -1,9 +1,7 @@
 const { test } = require('../support/index');
 const { ExecutarSQL, ExecutarSQLConsulta } = require('.././support/database');
 const data = require('../support/fixtures/tvshows.json');
-const { MoviesApi } = require('../support/movie_api');
 const { AuthApi } = require('../support/token.api');
-const { expect } = require('@playwright/test');
 const { TvshowPage } = require('../../pages/tvShowPage');
 
 

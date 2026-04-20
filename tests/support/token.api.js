@@ -72,4 +72,10 @@ export class AuthApi {
             },
         })
     }
+
+    async AdicionarLeadApi(data) {
+        // Criar um lead diretamente via API para garantir que o email já exista
+        const response = await this.request.post('http://localhost:3333/leads', { data: data });
+        expect(response.status()).toBe(201); // Verificar se o lead foi criado com sucesso
+    }
 }    

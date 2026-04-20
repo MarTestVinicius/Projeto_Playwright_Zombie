@@ -1,5 +1,6 @@
 const { expect } = require('@playwright/test');
 const { Componentes } = require('../components/Components');
+
 export class LeadsPage {
 
     constructor(page) {
