@@ -10,7 +10,7 @@ export class LeadsPage {
     }
 
     async IrPaginaInicial() {
-        await this.page.goto('http://localhost:3000/');
+        await this.page.goto('/');
     }
 
     async AbrirModal() {

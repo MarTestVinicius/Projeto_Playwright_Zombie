@@ -1,11 +1,13 @@
 import { expect } from '@playwright/test';
+require ('dotenv').config();
 
 export class AuthApi {
     constructor(request) {
+        this.baseApi = process.env.BASE_API
         this.request = request;
     }
     async loginToken(email, password) {
-        return await this.request.post('http://localhost:3333/sessions', {
+        return await this.request.post(this.baseApi + '/sessions', {
             data: { email, password }
         });
     }
@@ -19,7 +21,7 @@ export class AuthApi {
     }
 
     async getCompanyIdByName(companyName) {
-        const response = await this.request.get('http://localhost:3333/companies', {
+        const response = await this.request.get(this.baseApi + '/companies', {
             headers:
             {
                 Authorization: `Bearer ${await this.setToken()}`
@@ -36,7 +38,7 @@ export class AuthApi {
 
     async postMovie(movie) {
         const companyId = await this.getCompanyIdByName(movie.company);
-        const response = await this.request.post('http://localhost:3333/movies', {
+        const response = await this.request.post(this.baseApi + '/movies', {
             headers:
             {
                 Authorization: `Bearer ${await this.setToken()}`,
@@ -55,7 +57,7 @@ export class AuthApi {
 
     async postTVShow(tvshow) {
         const companyId = await this.getCompanyIdByName(tvshow.company);
-        const response = await this.request.post('http://localhost:3333/tvshows', {
+        const response = await this.request.post(this.baseApi + '/tvshows', {
             headers:
             {
                 Authorization: `Bearer ${await this.setToken()}`,
@@ -75,7 +77,7 @@ export class AuthApi {
 
     async AdicionarLeadApi(data) {
         // Criar um lead diretamente via API para garantir que o email já exista
-        const response = await this.request.post('http://localhost:3333/leads', { data: data });
+        const response = await this.request.post(this.baseApi + '/leads', { data: data });
         expect(response.status()).toBe(201); // Verificar se o lead foi criado com sucesso
     }
 }    
