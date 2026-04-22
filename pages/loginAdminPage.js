@@ -1,6 +1,7 @@
 import { expect } from '@playwright/test';
 import { Componentes } from '../components/Components';
 import { MoviePage } from  '../pages/moviePage';
+import AxeBuilder from '@axe-core/playwright';
 
 
 export class LoginPage {
@@ -46,5 +47,13 @@ export class LoginPage {
     async ValidarLoginAdminFalhaCamposSenhaVazio() {
         const erromensagem = 'Campo obrigatório';
        await this.componentes.ValidarAlertMensagem(erromensagem);
+    }
+
+     async ValidarAcessibilidadeLoginAdminPage() {
+        // Run accessibility scan
+        const results = await new AxeBuilder({ page: this.page }).withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa']).analyze();
+
+        // Assert no violations were found
+        expect(results.violations).toEqual([]);
     }
 }

@@ -1,5 +1,6 @@
 import { expect } from '@playwright/test';
 import { Componentes } from '../components/Components';
+import AxeBuilder from '@axe-core/playwright';
 
 export class MoviePage {
 
@@ -92,6 +93,14 @@ export class MoviePage {
     async ValidarResultadoPesquisa(palavra) {
         const row = await this.page.getByRole('row').locator('.title');//verificar se o resultado da pesquisa contém o filme esperado, indicando que a busca foi realizada com sucesso
         await expect(row).toContainText(palavra);
+    }
+
+    async ValidarAcessibilidadeMoviePage() {
+        // Run accessibility scan
+        const results = await new AxeBuilder({ page: this.page }).withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa']).analyze();
+
+        // Assert no violations were found
+        expect(results.violations).toEqual([]);
     }
 }
 

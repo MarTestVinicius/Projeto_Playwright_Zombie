@@ -9,6 +9,7 @@ import { TvshowPage } from '../../pages/tvShowPage';
 
 const test = base.extend({
     request: async ({ request }, use) => {
+        
         const context = request;
         //Service de aujtenticação
         context['api'] = new AuthApi(request);

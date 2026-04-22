@@ -1,5 +1,6 @@
 import { expect } from '@playwright/test';
 import { Componentes } from '../components/Components';
+import AxeBuilder from '@axe-core/playwright';
 
 export class LeadsPage {
 
@@ -55,5 +56,13 @@ export class LeadsPage {
     async ValidarMensagemErroCampoObrigatorioNome_Email() {
         const mensagem = ['Campo obrigatório', 'Campo obrigatório'];
         await this.componentes.ValidarAlertMensagem(mensagem);
+    }
+
+    async ValidarAcessibilidadeLeads() {
+        // Run accessibility scan
+        const results = await new AxeBuilder({ page: this.page }).withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa']).analyze();
+
+        // Assert no violations were found
+        expect(results.violations).toEqual([]);
     }
 }
