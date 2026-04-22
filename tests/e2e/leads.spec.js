@@ -1,6 +1,6 @@
-const { test } = require('../support/index');
+import { test } from '../support/index';
 import { faker } from '@faker-js/faker';
-const { ExecutarSQL, ExecutarSQLConsulta } = require('.././support/database');
+import { ExecutarSQL } from '.././support/database' ;
 
 /**
  * @type {string}

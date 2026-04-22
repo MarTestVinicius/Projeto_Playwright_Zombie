@@ -1,6 +1,6 @@
-const { expect } = require('@playwright/test');
-const { Componentes } = require('../components/Components');
-const { MoviePage } = require ('../pages/moviePage');
+import { expect } from '@playwright/test';
+import { Componentes } from '../components/Components';
+import { MoviePage } from  '../pages/moviePage';
 
 
 export class LoginPage {

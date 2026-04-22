@@ -1,4 +1,4 @@
-const { test } = require('@playwright/test');
+import { test } from '@playwright/test' ;
 import { LoginPage } from '../../pages/loginAdminPage';
 import { MoviePage } from '../../pages/moviePage';
 

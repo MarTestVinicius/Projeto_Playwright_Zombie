@@ -1,8 +1,6 @@
-const { test } = require('../support/index');
-const { ExecutarSQL, ExecutarSQLConsulta } = require('.././support/database');
-const data = require('../support/fixtures/movies.json');
-const { AuthApi } = require('../support/token.api');
-const { expect } = require('@playwright/test');
+import { test } from '../support/index';
+import { ExecutarSQL } from '.././support/database';
+const data = require( '../support/fixtures/movies.json');
 
 
 let api;

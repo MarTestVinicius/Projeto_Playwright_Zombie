@@ -1,8 +1,6 @@
-const { test } = require('../support/index');
-const { ExecutarSQL, ExecutarSQLConsulta } = require('.././support/database');
+import { test } from '../support/index';
+import { ExecutarSQL } from '.././support/database';
 const data = require('../support/fixtures/tvshows.json');
-const { AuthApi } = require('../support/token.api');
-const { TvshowPage } = require('../../pages/tvShowPage');
 
 
 let api;
